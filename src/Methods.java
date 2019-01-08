@@ -56,6 +56,35 @@ class StephensonMethod extends Methods {
 class FixPointIterationMethod extends Methods { //МПІ
     @Override
     public double Do(double e, double r, double l, Func f) throws IOException {
-        return 0;
+        String name = "results/FixPointIterationMethod" + f.index + ".txt";
+        FileWriter writer = new FileWriter(name);
+        double alpha, gamma;
+        if (f.der1(l) < f.der1(r)) {
+            alpha = f.der1(l);
+            gamma = f.der1(r);
+        } else {
+            alpha = f.der1(r);
+            gamma = f.der1(l);
+        }
+        double lambda = 2 / (alpha + gamma);
+        double x0 = l;
+        double x = x0 - lambda * f.f(x0);
+        double q = (gamma - alpha) / (gamma + alpha);
+        if ( q < 0.5) {
+            while (Math.abs(x0-x) > e * Math.abs((1-q)/q)) {
+                writer.append(String.valueOf(x)).append("\n");
+                x0 = x;
+                x = x0 - lambda * f.f(x0);
+            }
+        } else {
+            while (Math.abs(x0-x) > e) {
+                writer.append(String.valueOf(x)).append("\n");
+                x0 = x;
+                x = x0 - lambda * f.f(x0);
+            }
+        }
+        writer.append(String.valueOf(x));
+        writer.close();
+        return x;
     }
 }

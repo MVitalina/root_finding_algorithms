@@ -3,16 +3,22 @@ import static java.lang.Math.*;
 public abstract class Func {
     public Func() {}
 
+    public int index;
+
     public abstract double f(double x);
 
     public abstract double der1(double x);
 
     public abstract double der2(double x);
 
-    public abstract double fX(double x); // x = func
+    public abstract double fX(double x); // x = func(x)
 }
 
 class Func43 extends Func{
+
+    public Func43(){
+        this.index = 43;
+    }
 
     @Override
     public double f(double x){
@@ -36,6 +42,10 @@ class Func43 extends Func{
 }
 
 class Func47 extends Func{
+
+    public Func47(){
+        this.index = 47;
+    }
 
     @Override
     public double f(double x){

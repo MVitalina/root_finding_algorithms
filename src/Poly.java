@@ -26,6 +26,11 @@ class Poly8 extends Poly{
 
     @Override
     public void printSolution(){
-
+        LobachevskyMethod lobachevskyMethod = new LobachevskyMethod();
+        double [] x = lobachevskyMethod.Do(this);
+        System.out.println("Решение полинома по методу Лобачевского:");
+        for (int i = 0; i < x.length; i++){
+            System.out.printf("\nx%d = %.3f", i, x[i]);
+        }
     }
 }

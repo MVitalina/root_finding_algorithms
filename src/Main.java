@@ -10,7 +10,8 @@ public class Main {
 
         double e = 0.0000001;
         try {
-            System.out.printf("\nФункция 47: на (0.3; 0.4) за методом хорд дает значение %.7f", falsePositionMethod.Do(e, 0.4, 0.3, f47));
+            System.out.printf("\nФункция 47 на (0.3; 0.4) за методом хорд дает значение %.7f", falsePositionMethod.Do(e, 0.4, 0.3, f47));
+            System.out.printf("\nФункция 43 на (0.3; 0.4) за методом Стефенсона дает значение %.7f", stephensonMethod.Do(e, 5, 4, f43));
 
         } catch (Exception e1) {
             e1.printStackTrace();

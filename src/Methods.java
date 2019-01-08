@@ -38,7 +38,18 @@ class FalsePositionMethod extends Methods { //метод хорд
 class StephensonMethod extends Methods {
     @Override
     public double Do(double e, double r, double l, Func f) throws IOException {
-        return 0;
+        String name = "results/StephensonMethod" + f.index + ".txt";
+        FileWriter writer = new FileWriter(name);
+        double x0 = (r+l)/2;
+        double x = x0 - Math.pow(f.f(x0), 2) / (f.f(x0 + f.f(x0)) - f.f(x0));
+        while ( Math.abs(x - x0) > e){
+            writer.append(String.valueOf(x)).append("\n");
+            x0 = x;
+            x = x0 - Math.pow(f.f(x0), 2) / (f.f(x0 + f.f(x0)) - f.f(x0));
+        }
+        writer.append(String.valueOf(x));
+        writer.close();
+        return x;
     }
 }
 

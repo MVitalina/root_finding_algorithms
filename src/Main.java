@@ -17,5 +17,8 @@ public class Main {
         } catch (Exception e1) {
             e1.printStackTrace();
         }
+
+        Poly p8 = new Poly8();
+        p8.printSolution();
     }
 }

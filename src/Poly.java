@@ -20,7 +20,7 @@ class Poly8 extends Poly{
 
     @Override
     public double f(double x) {
-        return (-55 * Math.pow(x, 7) + 119 * Math.pow(x, 6) + 280 * Math.pow(x, 5) - 634 * Math.pow(x, 4) - 209 * Math.pow(x, 3) + 514 * Math.pow(x, 2) + 131 * x + 3);
+        return (-55 * Math.pow(x, 7)+119 * Math.pow(x, 6) + 280 * Math.pow(x, 5) -634 * Math.pow(x, 4) -209 * Math.pow(x, 3) +514 * Math.pow(x, 2) +131*x + 3);
     }
 
 
